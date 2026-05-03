@@ -2,20 +2,20 @@
 TypeScript Node backend that serves a basic React “Hello world” page.
 
 ## Run (directly from GitHub with npx)
-If this repo is on GitHub as `userName/projectName`, you can run it without installing:
+Run this directly from GitHub
 
 ```bash
-npx userName/projectName -- --port 3000
+npx Izelude/BetterZhsTennis
 ```
+This will start the app on port 3000.
 
-If your npm setup doesn’t resolve that shorthand, this equivalent form also works:
+## Obtain ory session cookie value
+To obtain the ory-session cookie (required to proxy your requests to zhs, the cookie value never leaves your machine, except to call the zhs backend), log in at 
+https://kurse.zhs-muenchen.de/de/product-offers/21114da0-4246-42b1-bab6-8d7ac49bb14f?refinementList%5Btags.Standort%5D%5B0%5D=Beach-+und+Tennisanlage
+then using dev tools in your browser look for the ory-session cookie on that website and copy its value to use with BetterZhsTennis.
+I have no idea how long the cookie is valid, but while playing around with this i was using mine for multiple days.
 
-```bash
-npx github:userName/projectName -- --port 3000
-```
-
-Then open `http://127.0.0.1:3000/`.
-
+More features to come.
 ## Run locally
 
 ```bash
