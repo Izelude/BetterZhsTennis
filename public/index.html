@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BetterZhsTennis</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      main {
+        max-width: 720px;
+        padding: 24px;
+      }
+      .card {
+        padding: 20px 22px;
+        border: 1px solid rgba(127, 127, 127, 0.25);
+        border-radius: 14px;
+        background: rgba(127, 127, 127, 0.06);
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="root" class="card"></div>
+    </main>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+      const e = React.createElement;
+      const App = () =>
+        e("div", null, [
+          e("h1", { key: "h" }, "Hello world"),
+          e(
+            "p",
+            { key: "p" },
+            "Node + TypeScript backend serving a React page (via CDN)."
+          ),
+          e(
+            "p",
+            { key: "p2" },
+            ["Try: ", e("code", { key: "c" }, "GET /healthz")]
+          ),
+        ]);
+
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    </script>
+  </body>
+</html>
+
