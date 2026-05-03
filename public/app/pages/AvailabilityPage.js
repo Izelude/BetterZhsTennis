@@ -10,7 +10,7 @@ function todayIso() {
   return toIsoDay(new Date());
 }
 
-export function AvailabilityPage() {
+export function AvailabilityPage({ onAuthError }) {
   const e = window.React.createElement;
 
   const [day, setDay] = window.React.useState(() => todayIso());
@@ -36,7 +36,13 @@ export function AvailabilityPage() {
       const slots = data?.booking_slots ?? [];
       setCourt(court, { status: "done", slots });
     } catch (err) {
-      setCourt(court, { status: "error", error: String(err?.message ?? err) });
+      const errorMessage = String(err?.message ?? err);
+      // Check if this is an authentication error
+      if (errorMessage.includes("401") || errorMessage.includes("Authentication required")) {
+        onAuthError?.();
+        return;
+      }
+      setCourt(court, { status: "error", error: errorMessage });
     }
   }
 

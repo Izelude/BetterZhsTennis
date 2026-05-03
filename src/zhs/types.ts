@@ -36,7 +36,14 @@ export type BookingSlot = {
 
 export type GraphQLResponse<TData> = {
   data?: TData;
-  errors?: Array<{ message: string }>;
+  errors?: Array<{
+    message: string;
+    path?: string[];
+    extensions?: {
+      status_code?: number;
+      service?: string;
+    };
+  }>;
 };
 
 export type ListProductSlotsData = {

@@ -38,7 +38,7 @@ export class ZhsClient {
       baseURL: opts.baseUrl ?? DEFAULT_BASE_URL,
       headers: {
         "content-type": "application/json",
-        cookie: `ory-session=${opts.orySession}`
+        cookie: `ory-session=${opts.orySession}`,
       },
       timeout: 20_000
     });
@@ -57,6 +57,15 @@ export class ZhsClient {
 
     const res = await this.http.post<GraphQLResponse<ListProductSlotsData>>("", payload);
     if (res.data.errors?.length) {
+      // Check for unauthenticated error that comes with 200 status
+      const unauthenticatedError = res.data.errors.find(
+        (e) => e.message === "unauthenticated" && e.extensions?.status_code === 401
+      );
+      if (unauthenticatedError) {
+        const error = new Error("Authentication required");
+        (error as any).status = 401;
+        throw error;
+      }
       throw new Error(res.data.errors.map((e) => e.message).join("\n"));
     }
     if (!res.data.data) {

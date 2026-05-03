@@ -39,7 +39,14 @@ export function App() {
         "Clear session"
       )
     ),
-    e(AvailabilityPage, { key: "p" })
+    e(AvailabilityPage, {
+      key: "p", onAuthError: () => {
+        deleteCookie("ory_session");
+        setSession("");
+        setDraft("");
+        setState({ status: "idle" });
+      }
+    })
   ]);
 }
 
