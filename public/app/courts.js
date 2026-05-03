@@ -1,0 +1,22 @@
+export const COURTS = [
+  "Tennisplatz 2",
+  "Tennisplatz 3",
+  "Tennisplatz 4",
+  "Tennisplatz 5",
+  "Tennisplatz 6",
+  "Tennisplatz 7",
+  "Tennisplatz 8",
+  "Tennisplatz 9",
+  "Tennisplatz 10",
+  "Tennisplatz 11",
+  "Tennisplatz 12",
+  "Tennisplatz 13",
+  "Tennisplatz 14",
+  "Tennisplatz 15",
+  "Tennisplatz 16",
+  "Tennisplatz 17",
+  "Tennisplatz 20 (Kunststoff)",
+  "Tennisplatz 21 (Kunststoff)",
+  "Tennisplatz 22 (Kunststoff)"
+];
+

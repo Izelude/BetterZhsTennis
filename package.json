@@ -1,6 +1,6 @@
 {
   "name": "better-zhstennis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "TypeScript Node backend that serves a React hello world page.",
   "license": "MIT",
@@ -19,12 +19,15 @@
     "prepare": "npm run build"
   },
   "dependencies": {
+    "axios": "^1.12.2",
     "express": "^4.19.2",
+    "luxon": "^3.7.0",
     "open": "^10.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.23",
     "@types/node": "^22.15.21",
+    "@types/luxon": "^3.7.1",
     "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"

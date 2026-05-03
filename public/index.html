@@ -26,6 +26,143 @@
         border-radius: 14px;
         background: rgba(127, 127, 127, 0.06);
       }
+      .page {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .topBar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+      }
+      .datePicker {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid rgba(127, 127, 127, 0.25);
+        border-radius: 12px;
+        background: rgba(127, 127, 127, 0.04);
+      }
+      .dateLabel {
+        font-weight: 600;
+      }
+      .dateInput {
+        border: 1px solid rgba(127, 127, 127, 0.25);
+        border-radius: 10px;
+        padding: 6px 8px;
+        background: transparent;
+        color: inherit;
+      }
+      .pager {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .pagerText {
+        opacity: 0.85;
+      }
+      .iconBtn {
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(127,127,127,0.35);
+        background: rgba(127,127,127,0.10);
+        cursor: pointer;
+        color: inherit;
+      }
+      .iconBtn:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+      .linkBtn {
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(127,127,127,0.35);
+        background: rgba(127,127,127,0.10);
+        cursor: pointer;
+        color: inherit;
+      }
+      .courtGrid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+      @media (max-width: 920px) {
+        .courtGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      .courtCard {
+        padding: 10px 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(127,127,127,0.22);
+        background: rgba(127,127,127,0.03);
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .courtHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .courtName {
+        font-weight: 650;
+        font-size: 13px;
+      }
+      .courtError {
+        margin: 0;
+        opacity: 0.85;
+        white-space: pre-wrap;
+        font-size: 12px;
+      }
+      .slotsGrid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+      }
+      .slot {
+        border-radius: 10px;
+        padding: 6px 8px;
+        border: 1px solid rgba(127,127,127,0.18);
+        font-size: 12px;
+      }
+      .slotTime {
+        font-variant-numeric: tabular-nums;
+      }
+      .slot.free {
+        background: rgba(30, 180, 90, 0.16);
+        border-color: rgba(30, 180, 90, 0.35);
+      }
+      .slot.unavailable {
+        background: rgba(220, 60, 60, 0.12);
+        border-color: rgba(220, 60, 60, 0.28);
+      }
+      .spinnerWrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0.9;
+        padding: 10px 2px;
+      }
+      .spinner {
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(127,127,127,0.35);
+        border-top-color: rgba(127,127,127,0.85);
+        border-radius: 50%;
+        animation: spin 0.85s linear infinite;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
       code {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
           "Liberation Mono", "Courier New", monospace;
@@ -39,25 +176,7 @@
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script>
-      const e = React.createElement;
-      const App = () =>
-        e("div", null, [
-          e("h1", { key: "h" }, "Hello world"),
-          e(
-            "p",
-            { key: "p" },
-            "Node + TypeScript backend serving a React page (via CDN)."
-          ),
-          e(
-            "p",
-            { key: "p2" },
-            ["Try: ", e("code", { key: "c" }, "GET /healthz")]
-          ),
-        ]);
-
-      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
-    </script>
+    <script type="module" src="/app/main.js"></script>
   </body>
 </html>
 

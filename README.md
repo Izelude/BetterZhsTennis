@@ -35,3 +35,6 @@ npm start -- --port 3000
 - **`--host <string>`** or `HOST=<string>`
 - **`--open`**: force open in default browser
 - **`--no-open`**: do not open browser (useful for CI/headless)
+
+## Auth (local cookie)
+The app will prompt you for the `ory-session` value in the browser and store it in a local cookie (`ory_session`).
